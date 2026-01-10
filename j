@@ -9,8 +9,6 @@ local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
 local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
 local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
 local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
-Library.AccentColor = Color3.fromRGB(0, 85, 255)
-Library:UpdateColors()
 
 local Options = Library.Options
 local Toggles = Library.Toggles
@@ -285,6 +283,7 @@ moveSection:AddToggle("fly", { Text = "Enable Fly [!]", Default = false, Callbac
 moveSection:AddSlider("flySpeed", { Text = "Fly Speed", Default = 50, Min = 10, Max = 250, Rounding = 0, Callback = function(v) functions.flyspeed = v end })
 
 -- SETTINGS
+-- SETTINGS
 ThemeManager:SetLibrary(Library)
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
@@ -292,8 +291,36 @@ SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
 ThemeManager:SetFolder('WaterGG')
 SaveManager:SetFolder('WaterGG/configs')
 
-local SettingsBox = tabs.set:AddRightGroupbox("Settings")
+-- Criando a seção de customização de cores da GUI
+local SettingsBox = tabs.set:AddLeftGroupbox("Menu Theme")
+
+-- Removi o ":UpdateColors()" para evitar o erro. 
+-- A maioria das versões modernas atualiza assim que o valor da tabela é alterado.
+SettingsBox:AddLabel('Main Color'):AddColorPicker('MenuColor', { 
+    Default = Library.MainColor, 
+    Title = 'Menu Primary Color', 
+    Callback = function(Value) 
+        Library.MainColor = Value 
+    end 
+})
+
+SettingsBox:AddLabel('Background Color'):AddColorPicker('BackgroundColor', { 
+    Default = Library.BackgroundColor, 
+    Title = 'Background Color', 
+    Callback = function(Value) 
+        Library.BackgroundColor = Value 
+    end 
+})
+
+SettingsBox:AddLabel('Accent Color'):AddColorPicker('AccentColor', { 
+    Default = Library.AccentColor, 
+    Title = 'Accent Color', 
+    Callback = function(Value) 
+        Library.AccentColor = Value 
+    end 
+})
+
 ThemeManager:ApplyToTab(tabs.set)
 SaveManager:BuildConfigSection(tabs.set)
 
-Library:Notify("Water.GG Loaded!")        
+Library:Notify("Water.GG Loaded!")
