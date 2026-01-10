@@ -9,6 +9,8 @@ local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
 local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
 local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
 local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
+Library.AccentColor = Color3.fromRGB(0, 85, 255)
+Library:UpdateColors()
 
 local Options = Library.Options
 local Toggles = Library.Toggles
@@ -135,7 +137,7 @@ local function aimbot()
 end
 
 local window = Library:CreateWindow({
-    Title = "",
+    Title = "Water.GG",
     Icon = 128319020082767,
     Footer = "Water.GG ©, 2025.",
     Center = true,
@@ -143,10 +145,10 @@ local window = Library:CreateWindow({
 })
 
 local tabs = {
-    main = window:AddTab("", "sword"),
-    vis = window:AddTab("", "eye"),
-    player = window:AddTab("", "user"),
-    gun = window:AddTab("", "crosshair"),
+    main = window:AddTab("Combat", "sword"),
+    vis = window:AddTab("Visuals", "eye"),
+    player = window:AddTab("Player", "user"),
+    gun = window:AddTab("Gun Mods", "crosshair"),
     set = window:AddTab('Settings')
 }
 
