@@ -135,7 +135,7 @@ local function aimbot()
 end
 
 local window = Library:CreateWindow({
-    Title = "Water.GG",
+    Title = "",
     Icon = 128319020082767,
     Footer = "Water.GG ©, 2025.",
     Center = true,
@@ -143,10 +143,10 @@ local window = Library:CreateWindow({
 })
 
 local tabs = {
-    main = window:AddTab("Combat", "sword"),
-    vis = window:AddTab("Visuals", "eye"),
-    player = window:AddTab("Player", "user"),
-    gun = window:AddTab("Guns Mod", "crosshair"),
+    main = window:AddTab("", "sword"),
+    vis = window:AddTab("", "eye"),
+    player = window:AddTab("", "user"),
+    gun = window:AddTab("", "crosshair"),
     set = window:AddTab('Settings')
 }
 
