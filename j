@@ -5,7 +5,7 @@ local run = game:GetService("RunService")
 local coregui = game:GetService("CoreGui")
 local uis = game:GetService("UserInputService")
 
-local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
+local repo = "https://raw.githubusercontent.com/k00zikidd1-lab/Obsidian/refs/heads/main/Library.lua"
 local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
 local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
 local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
